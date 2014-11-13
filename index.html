@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title> Twitter Emojii Everywhere DEMO</title>
+	<!-- Using Elle Kasai css as cheat sheet to include emoji as class-->
+	<link rel="stylesheet" type="text/css" href="twemoji-awesome.css">
+</head>
+<body>
+
+	<h4>Sample Emojii with codes</h4>
+	&#x1F3B9; - <code>&amp#x1F3B9;</code><br/>
+
+	&#x1F3C1; - <code>&amp#x1F3C1;</code>
+
+
+	<h4>Using twemoji-awesome CSS</h4>
+
+	<i class="twa twa-heart"></i> - <i>twa-heart</i> <br/>
+	<i class="twa twa-lg twa-sparkles"></i> - <i>twa-sparkles</i> <br/>
+	<i class="twa twa-2x twa-hatching-chick"></i> - <i>twa-hatching-chick</i><br/>
+
+	<h4>Appending Emoji from script </h4>
+
+	<div id="emo"></div>
+
+	<!-- CDN for twiter Emoji-->
+	<script src="http://twemoji.maxcdn.com/twemoji.min.js"></script>
+
+	<script type="text/javascript">
+		/*Using parse method for the Emoji*/
+		twemoji.parse('I \u2764\uFE0F emoji!');
+
+
+		var div = document.createElement('div');
+		div.textContent = 'I \u2764\uFE0F emoji!';
+		//document.body.appendChild(div);
+		document.getElementById("emo").appendChild(div);
+		 
+		twemoji.parse(document.body);
+		 
+		var img = div.querySelector('img');
+		 
+		// note the div is preserved
+		img.parentNode === div; // true
+		 
+		img.src;        // abs.twimg.com/emoji/v1/36x36/2764.png
+		img.alt;        // \u2764\uFE0F
+		img.class;      // emoji
+		img.draggable;  // false
+	</script>
+
+</body>
+</html>
